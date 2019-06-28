@@ -24,10 +24,11 @@ namespace RockPaperScissors
             else
             {
                 // Update Game Result text box colour according to result
+                textBoxGameResult.BackColor = DefaultBackColor;
                 switch (_GameController.PlayerStatus)
                 {
                     case GameResult.DRAW:
-                        textBoxGameResult.ForeColor = Color.AliceBlue;
+                        textBoxGameResult.ForeColor = Color.Blue;
                         break;
                     case GameResult.LOSE:
                         textBoxGameResult.ForeColor = Color.Red;
