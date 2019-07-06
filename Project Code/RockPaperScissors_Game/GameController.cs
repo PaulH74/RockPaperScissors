@@ -67,7 +67,7 @@ namespace RockPaperScissors
         /// <returns></returns>
         private int GetAIChoice()
         {
-            const int MAX_VALUE = 3;
+            const int MAX_VALUE = 3;        // N - 1 selected in .Next()
             const int MIN_VALUE = 0;
 
             return _RandomNumber.Next(MIN_VALUE, MAX_VALUE);

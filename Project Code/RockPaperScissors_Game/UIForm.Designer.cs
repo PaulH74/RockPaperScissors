@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxPlayerChoice = new System.Windows.Forms.GroupBox();
+            this.textBoxCountDown = new System.Windows.Forms.TextBox();
             this.buttonScissors = new System.Windows.Forms.Button();
             this.buttonPaper = new System.Windows.Forms.Button();
             this.buttonRock = new System.Windows.Forms.Button();
@@ -51,6 +52,8 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonNewGame = new System.Windows.Forms.Button();
+            this.buttonExitGame = new System.Windows.Forms.Button();
             this.groupBoxPlayerChoice.SuspendLayout();
             this.groupBoxGameResult.SuspendLayout();
             this.groupBoxScores.SuspendLayout();
@@ -59,6 +62,7 @@
             // 
             // groupBoxPlayerChoice
             // 
+            this.groupBoxPlayerChoice.Controls.Add(this.textBoxCountDown);
             this.groupBoxPlayerChoice.Controls.Add(this.buttonScissors);
             this.groupBoxPlayerChoice.Controls.Add(this.buttonPaper);
             this.groupBoxPlayerChoice.Controls.Add(this.buttonRock);
@@ -69,9 +73,19 @@
             this.groupBoxPlayerChoice.TabStop = false;
             this.groupBoxPlayerChoice.Text = "PLAYER CHOICE";
             // 
+            // textBoxCountDown
+            // 
+            this.textBoxCountDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCountDown.Location = new System.Drawing.Point(505, 47);
+            this.textBoxCountDown.Name = "textBoxCountDown";
+            this.textBoxCountDown.Size = new System.Drawing.Size(121, 40);
+            this.textBoxCountDown.TabIndex = 5;
+            this.textBoxCountDown.TabStop = false;
+            this.textBoxCountDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // buttonScissors
             // 
-            this.buttonScissors.Location = new System.Drawing.Point(440, 46);
+            this.buttonScissors.Location = new System.Drawing.Point(329, 46);
             this.buttonScissors.Name = "buttonScissors";
             this.buttonScissors.Size = new System.Drawing.Size(115, 41);
             this.buttonScissors.TabIndex = 2;
@@ -81,7 +95,7 @@
             // 
             // buttonPaper
             // 
-            this.buttonPaper.Location = new System.Drawing.Point(250, 46);
+            this.buttonPaper.Location = new System.Drawing.Point(176, 46);
             this.buttonPaper.Name = "buttonPaper";
             this.buttonPaper.Size = new System.Drawing.Size(115, 41);
             this.buttonPaper.TabIndex = 1;
@@ -91,7 +105,7 @@
             // 
             // buttonRock
             // 
-            this.buttonRock.Location = new System.Drawing.Point(69, 46);
+            this.buttonRock.Location = new System.Drawing.Point(23, 46);
             this.buttonRock.Name = "buttonRock";
             this.buttonRock.Size = new System.Drawing.Size(115, 41);
             this.buttonRock.TabIndex = 0;
@@ -258,14 +272,14 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.newGameToolStripMenuItem.Text = "&New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -281,20 +295,42 @@
             // rulesToolStripMenuItem
             // 
             this.rulesToolStripMenuItem.Name = "rulesToolStripMenuItem";
-            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rulesToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.rulesToolStripMenuItem.Text = "&Rules";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "&About";
+            // 
+            // buttonNewGame
+            // 
+            this.buttonNewGame.Location = new System.Drawing.Point(61, 462);
+            this.buttonNewGame.Name = "buttonNewGame";
+            this.buttonNewGame.Size = new System.Drawing.Size(115, 41);
+            this.buttonNewGame.TabIndex = 8;
+            this.buttonNewGame.Text = "&NEW GAME";
+            this.buttonNewGame.UseVisualStyleBackColor = true;
+            this.buttonNewGame.Click += new System.EventHandler(this.buttonNewGame_Click);
+            // 
+            // buttonExitGame
+            // 
+            this.buttonExitGame.Location = new System.Drawing.Point(590, 462);
+            this.buttonExitGame.Name = "buttonExitGame";
+            this.buttonExitGame.Size = new System.Drawing.Size(115, 41);
+            this.buttonExitGame.TabIndex = 9;
+            this.buttonExitGame.Text = "E&XIT GAME";
+            this.buttonExitGame.UseVisualStyleBackColor = true;
+            this.buttonExitGame.Click += new System.EventHandler(this.buttonExitGame_Click);
             // 
             // UIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 489);
+            this.ClientSize = new System.Drawing.Size(800, 528);
+            this.Controls.Add(this.buttonExitGame);
+            this.Controls.Add(this.buttonNewGame);
             this.Controls.Add(this.groupBoxScores);
             this.Controls.Add(this.groupBoxGameResult);
             this.Controls.Add(this.groupBoxPlayerChoice);
@@ -303,6 +339,7 @@
             this.Name = "UIForm";
             this.Text = "Rock, Paper, Scissors - GAME";
             this.groupBoxPlayerChoice.ResumeLayout(false);
+            this.groupBoxPlayerChoice.PerformLayout();
             this.groupBoxGameResult.ResumeLayout(false);
             this.groupBoxGameResult.PerformLayout();
             this.groupBoxScores.ResumeLayout(false);
@@ -339,6 +376,9 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rulesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxCountDown;
+        private System.Windows.Forms.Button buttonNewGame;
+        private System.Windows.Forms.Button buttonExitGame;
     }
 }
 
